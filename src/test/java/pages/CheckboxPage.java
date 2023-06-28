@@ -6,16 +6,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CheckboxPage extends TestBase {
+public class CheckboxPage {
 
+    private WebDriver driver;
     @FindBy(xpath = "//*[@id=\"checkboxes\"]/input[1]")
     private WebElement checkbox1;
 
     @FindBy(xpath = "//*[@id=\"checkboxes\"]/input[2]")
     private WebElement checkbox2;
 
-    public CheckboxPage(WebDriver driver){
+    public CheckboxPage(){
+        driver = TestBase.getDriver();
         PageFactory.initElements(driver, this);
+    }
+
+    public WebDriver getDriver(){
+        return driver;
     }
 
     public WebElement getCheckbox1(){

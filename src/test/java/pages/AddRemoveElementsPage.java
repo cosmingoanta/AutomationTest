@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AddRemoveElementsPage extends TestBase {
+public class AddRemoveElementsPage {
+
+    private WebDriver driver;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div/button")
     private WebElement addElementButton;
@@ -17,8 +19,13 @@ public class AddRemoveElementsPage extends TestBase {
     @FindBy(xpath = "//*[@id=\"elements\"]/button[2]")
     private WebElement deleteButton2;
 
-    public AddRemoveElementsPage(WebDriver driver){
+    public AddRemoveElementsPage(){
+        driver = TestBase.getDriver();
         PageFactory.initElements(driver, this);
+    }
+
+    public WebDriver getDriver(){
+        return driver;
     }
 
     public WebElement getAddElementButton(){

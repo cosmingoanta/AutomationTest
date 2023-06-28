@@ -6,10 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends TestBase {
+public class LoginPage {
 
-
-
+    private WebDriver driver;
     @FindBy(id = "username")
     private WebElement usernameField;
     @FindBy(id = "password")
@@ -19,8 +18,14 @@ public class LoginPage extends TestBase {
     @FindBy(id = "flash")
     private WebElement message;
 
-    public LoginPage(WebDriver driver){
+
+    public LoginPage(){
+        driver = TestBase.getDriver();
         PageFactory.initElements(driver, this);
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
     public WebElement getUsernameField(){
