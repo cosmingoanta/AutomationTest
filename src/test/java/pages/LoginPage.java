@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    private WebDriver driver;
     @FindBy(id = "username")
     private WebElement usernameField;
     @FindBy(id = "password")
@@ -19,14 +18,13 @@ public class LoginPage {
     private WebElement message;
 
 
-    public LoginPage(){
-        driver = TestBase.getDriver();
+    public LoginPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
+//    public WebDriver getDriver() {
+//        return driver;
+//    }
 
     public WebElement getUsernameField(){
         return this.usernameField;

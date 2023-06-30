@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import config.TestBase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -7,11 +8,11 @@ import org.junit.jupiter.api.Assertions;
 import pages.CheckboxPage;
 
 public class CheckboxPageStepDefinitions {
-    CheckboxPage checkboxPage = new CheckboxPage();
+    CheckboxPage checkboxPage = new CheckboxPage(TestBase.getDriver());
 
     @Given("the user opens the checkbox page")
     public void theUserOpensTheApplication() {
-        checkboxPage.getDriver().navigate().to("https://the-internet.herokuapp.com/checkboxes");
+        TestBase.getDriver().navigate().to("https://the-internet.herokuapp.com/checkboxes");
     }
 
     @When("the user clicks on the first checkbox")
